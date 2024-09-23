@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Book List</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Publish Date</th>
+            <th>Copies Available</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author.FirstName @book.Author.LastName</td>
+                <td>@book.Genre</td>
+                <td>@book.PublishDate.ToString("dd MMM yyyy")</td>
+                <td>@book.CopiesAvailable</td>
+                <td>
+                    <a href="/Book/Details/@book.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
